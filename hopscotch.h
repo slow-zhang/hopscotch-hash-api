@@ -138,6 +138,11 @@ class Hopscotch {
             return h % (size-1);
     }
 
+    void pr(){
+        for(int i=0;i<20;i++){
+            cout<<segments_arys[i]._key<<" "<<segments_arys[i]._hop_info<<endl;
+        }
+    }
 	Hopscotch();
    ~Hopscotch();
 	bool contains(int key);

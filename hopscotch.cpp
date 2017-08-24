@@ -133,7 +133,8 @@ bool Hopscotch::contains(int key){
 bool Hopscotch::add(int key,const char *data){
   int val = 1;
   //unsigned int h=((*key)&(MAX_SEGMENTS-1));
-  unsigned int h= MurmurHash2A((const int)key, 4);
+  //unsigned int h= MurmurHash2A((const int)key, 4);
+    unsigned int h= key % size;
   Bucket* start_bucket=&segments_arys[h];
   start_bucket->lock();
   //sleep(1);
@@ -164,6 +165,7 @@ bool Hopscotch::add(int key,const char *data){
     }while(0 != val);
   }
   start_bucket->unlock();
+    cout<<"warning: Need resize!";
   resize();
   return Hopscotch::add(key,data);
 //  cout<<"Called Resize"<<endl;

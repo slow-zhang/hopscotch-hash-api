@@ -77,6 +77,9 @@ public:
         H.resize();
     }
 
+    void prr(){
+        H.pr();
+    }
 };
 
 // KeyComparator provides a means to compare keys, which are internal keys
