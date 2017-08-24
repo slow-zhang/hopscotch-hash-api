@@ -133,8 +133,8 @@ bool Hopscotch::contains(int key){
 bool Hopscotch::add(int key,const char *data){
   int val = 1;
   //unsigned int h=((*key)&(MAX_SEGMENTS-1));
-  //unsigned int h= MurmurHash2A((const int)key, 4);
-    unsigned int h= key % size;
+  unsigned int h= MurmurHash2A((const int)key, 4);
+  //unsigned int h= key % size;
   Bucket* start_bucket=&segments_arys[h];
   start_bucket->lock();
   //sleep(1);

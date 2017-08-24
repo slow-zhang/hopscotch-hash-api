@@ -15,7 +15,7 @@ class Hopscotch {
   private:
 	static const int HOP_RANGE = 32;//32;//1024;//32;
 	static const int ADD_RANGE = 256;//1024*4;//256;
-    static const int MAX_SEGMENTS = 1024;//41943040;//118857;//1024*1024*16-1;//13981013;
+    static const int MAX_SEGMENTS = 41943040;//118857;//1024*1024*16-1;//13981013;
     //1024*1024*2-1;//1048576;//13981013;//102*1024*8;////// Including neighbourhodd for last hash location
     
 	static const int MAX_TRIES = 2;
