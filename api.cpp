@@ -15,7 +15,9 @@ private:
 public:
     
     
-	
+    HopscotchHashing(){
+        Hopscotch H;
+    }
 	// Insert or replace the tuple address with key into the index.
 	// Returns true iff Insert or replace successfully.
     bool Insert(const char* address, const KeyType &key){
@@ -74,7 +76,7 @@ public:
 
 	// Only for hash index to reSize and rehash
     void ensureCapacity(uint32_t capacity){
-        H.resize();
+        //H.resize();
     }
 
     void prr(){

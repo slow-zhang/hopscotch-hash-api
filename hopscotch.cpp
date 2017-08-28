@@ -8,6 +8,7 @@ Hopscotch::Hopscotch(){
 	//segments_arys = new Bucket[MAX_SEGMENTS+512];
 	segments_arys = (Bucket*)malloc(sizeof(Bucket) * (size));
     seed = rand() % LONG_MAX +1;
+    size=size;
 }
 
 Hopscotch::~Hopscotch()
@@ -85,10 +86,6 @@ bool Hopscotch::contains(int key){
 	//unsigned int h = ((*key)&(MAX_SEGMENTS-1));
 	unsigned int h= MurmurHash2A((const int)key, 4);
 
-	if(h >MAX_SEGMENTS)
-	{
-        std::cout<<" ERROR";
-	}
 	Bucket* start_bucket = &segments_arys[h];
 	unsigned int try_counter = 0;
 	unsigned int timestamp;
@@ -165,10 +162,10 @@ bool Hopscotch::add(int key,const char *data){
     }while(0 != val);
   }
   start_bucket->unlock();
-    cout<<"warning: Need resize!";
-  resize();
-  return Hopscotch::add(key,data);
-//  cout<<"Called Resize"<<endl;
+  cout<<"warning: Need resize!"<<endl;
+  //resize();
+  //return Hopscotch::add(key,data);
+  //cout<<"Called Resize"<<endl;
   return false;
 }
 

@@ -15,7 +15,7 @@ class Hopscotch {
   private:
 	static const int HOP_RANGE = 32;//32;//1024;//32;
 	static const int ADD_RANGE = 256;//1024*4;//256;
-    static const int MAX_SEGMENTS = 41943040;//118857;//1024*1024*16-1;//13981013;
+    static const int MAX_SEGMENTS = 13981013;//118857;//1024*1024*16-1;//13981013;
     //1024*1024*2-1;//1048576;//13981013;//102*1024*8;////// Including neighbourhodd for last hash location
     
 	static const int MAX_TRIES = 2;
@@ -103,7 +103,17 @@ class Hopscotch {
     c -= rot(b, 24);
       return ((uint64_t)c + (((uint64_t)b) << 32)) & (~MSB);
   }
+    int newhashf(int key){
+        int num = 0x27d4eb2d; // a prime or an odd constant
+        key = (key ^ 61) ^ (key >> 16);
+        key = key + (key << 3);
+        key = key ^ (key >> 4);
+        key = key * num;
+        key = key ^ (key >> 15);
+        return key % size;
+    }
   unsigned int MurmurHash2A (const int key, int len){
+      return newhashf(key);
             const unsigned int m = 0x5bd1e995;
             const int r = 24;
             unsigned int l = len;
@@ -154,6 +164,7 @@ class Hopscotch {
     int getsize();
     int find(int key);
     char* returnchar(int id);
+   
 };
 
 #endif // HOPSCOTCH_H
