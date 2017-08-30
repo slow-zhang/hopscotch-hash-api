@@ -18,6 +18,10 @@ public:
     HopscotchHashing(){
         Hopscotch H;
     }
+    HopscotchHashing(unsigned int Hsize){
+        Hopscotch H=Hopscotch(Hsize);
+        
+    }
 	// Insert or replace the tuple address with key into the index.
 	// Returns true iff Insert or replace successfully.
     bool Insert(const char* address, const KeyType &key){

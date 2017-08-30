@@ -8,8 +8,14 @@ Hopscotch::Hopscotch(){
 	//segments_arys = new Bucket[MAX_SEGMENTS+512];
 	segments_arys = (Bucket*)malloc(sizeof(Bucket) * (size));
     seed = rand() % LONG_MAX +1;
-    size=size;
+  
 }
+Hopscotch::Hopscotch(int Hsize){
+    //segments_arys = new Bucket[MAX_SEGMENTS+512];
+    size=Hsize;
+    segments_arys = (Bucket*)malloc(sizeof(Bucket) * (size));
+}
+
 
 Hopscotch::~Hopscotch()
 {

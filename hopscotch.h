@@ -154,6 +154,7 @@ class Hopscotch {
         }
     }
 	Hopscotch();
+    Hopscotch(int Hsize);
    ~Hopscotch();
 	bool contains(int key);
 	bool add(int key, const char *data);

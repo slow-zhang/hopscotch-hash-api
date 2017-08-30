@@ -17,7 +17,7 @@ int main() {
     const static int MAX_KEY_RANGE = 100000000;
 
     // define your table
-    HopscotchHashing  *myHash=new HopscotchHashing; // need customization
+    HopscotchHashing  *myHash=new HopscotchHashing(TABLE_SIZE); // need customization
     // initial random seed
     srand((unsigned)time(NULL));
 
@@ -77,7 +77,7 @@ int main() {
 
     //----------------------------next term--------------------
     delete myHash;
-    myHash = new class HopscotchHashing; // need customization
+    myHash = new class HopscotchHashing(TABLE_SIZE); // need customization
     
     // random insertion
     vector<int> keys;
